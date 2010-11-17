@@ -18,6 +18,13 @@
 
 		tag_input		= el.children(".tagit-new").children(".tagit-input");
 
+      // Add default tags for the input field
+      if (options.startingTags != null){
+        $.each(options.startingTags, function(key, tag){
+          create_choice(tag);
+        });
+      }
+
 		$(this).click(function(e){
 			if (e.target.tagName == 'A') {
 				// Removes a tag when the little 'x' is clicked.
