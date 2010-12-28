@@ -16,7 +16,7 @@
 		var html_input_field = "<li class=\"tagit-new\"><input class=\"tagit-input\" type=\"text\" /></li>\n";
 		el.html (html_input_field);
 
-		tag_input		= el.children(".tagit-new").children(".tagit-input");
+		var tag_input		= el.children(".tagit-new").children(".tagit-input");
 
 		$(this).click(function(e){
 			if (e.target.tagName == 'A') {
