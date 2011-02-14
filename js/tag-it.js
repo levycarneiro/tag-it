@@ -14,7 +14,8 @@
 
 		// create the input field.
 		var html_input_field = "<li class=\"tagit-new\"><input class=\"tagit-input\" type=\"text\" /></li>\n";
-		el.html (html_input_field);
+		//el.html (html_input_field); ..changed this line below
+        el.append(html_input_field);
 
 		tag_input		= el.children(".tagit-new").children(".tagit-input");
 
@@ -72,9 +73,11 @@
 
 		function is_new (value){
 			var is_new = true;
+            var count = 0;
 			this.tag_input.parents("ul").children(".tagit-choice").each(function(i){
-				n = $(this).children("input").val();
-				if (value == n) {
+				count++;
+                n = $(this).children("input").val();
+				if (value == n || count >= options.maxTags) {
 					is_new = false;
 				}
 			})
@@ -83,7 +86,7 @@
 		function create_choice (value){
 			var el = "";
 			el  = "<li class=\"tagit-choice\">\n";
-			el += value + "\n";
+			el += "<span class=\"tagit-value\">" + value + "</span> \n";
 			el += "<a class=\"close\">x</a>\n";
 			el += "<input type=\"hidden\" style=\"display:none;\" value=\""+value+"\" name=\"item[tags][]\">\n";
 			el += "</li>\n";
