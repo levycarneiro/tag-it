@@ -76,7 +76,7 @@
                         var count = 0;
 			this.tag_input.parents("ul").children(".tagit-choice").each(function(i){
 				count++;
-                        n = $(this).children("input").val();
+                                n = $(this).children("input").val();
 				if (value == n || count >= options.maxTags) {
 					is_new = false;
 				}
