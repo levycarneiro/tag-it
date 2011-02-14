@@ -14,8 +14,8 @@
 
 		// create the input field.
 		var html_input_field = "<li class=\"tagit-new\"><input class=\"tagit-input\" type=\"text\" /></li>\n";
-		//el.html (html_input_field); ..changed this line below
-        el.append(html_input_field);
+		//changed .html to .append to allow application of plugin to ul with existing list items
+                el.append(html_input_field);
 
 		tag_input		= el.children(".tagit-new").children(".tagit-input");
 
@@ -73,10 +73,10 @@
 
 		function is_new (value){
 			var is_new = true;
-            var count = 0;
+                        var count = 0;
 			this.tag_input.parents("ul").children(".tagit-choice").each(function(i){
 				count++;
-                n = $(this).children("input").val();
+                        n = $(this).children("input").val();
 				if (value == n || count >= options.maxTags) {
 					is_new = false;
 				}
