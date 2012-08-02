@@ -57,6 +57,10 @@
 		});
 
         var autocomplete_query = options;
+        if ('availableTags' in autocomplete_query) {
+            autocomplete_query['source'] = autocomplete_query['availableTags'];
+            delete autocomplete_query['availableTags'];
+        }
         autocomplete_query['select'] = function(event,ui){
             if (is_new (ui.item.value)) {
                 create_choice (ui.item.value);
