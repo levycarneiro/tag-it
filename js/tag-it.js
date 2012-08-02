@@ -56,19 +56,18 @@
 			}
 		});
 
-		tag_input.autocomplete({
-			source: options.availableTags, 
-			select: function(event,ui){
-				if (is_new (ui.item.value)) {
-					create_choice (ui.item.value);
-				}
-				// Cleaning the input.
-				tag_input.val("");
-
-				// Preventing the tag input to be update with the chosen value.
-				return false;
-			}
-		});
+        var autocomplete_query = options;
+        autocomplete_query['select'] = function(event,ui){
+            if (is_new (ui.item.value)) {
+                create_choice (ui.item.value);
+            }
+            // Clean the input.
+            tag_input.val("");
+            
+            // Prevent the tag input from being updated with the chosen value.
+            return false;
+        };
+		tag_input.autocomplete(autocomplete_query);
 
 		function is_new (value){
 			var is_new = true;
